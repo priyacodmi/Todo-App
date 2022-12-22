@@ -15,6 +15,7 @@ import { addTodo, deleteTodo, getAllTodos, updateTodoStatus, updateTodoTitle } f
 
 export const Todo=()=>{
 const todos=useSelector(state=>state.todos);
+console.log(todos)
   const dispatch=useDispatch();
 
   const handleSubmit=(e,todo)=>{

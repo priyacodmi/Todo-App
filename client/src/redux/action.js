@@ -7,7 +7,6 @@ export const getAllTodos=()=>(dispatch)=>{
   dispatch({type:types.FETCH_TODOS_REQUEST});
   return axios.get(`http://localhost:5000/api/todos/all`)
   .then((response)=>{
-    console.log(response.data.todos)
     return dispatch({type:types.FETCH_TODOS_SUCCESS, payload:response.data.todos})
   })
   .catch((error)=>{
