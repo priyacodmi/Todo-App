@@ -21,7 +21,7 @@ export default function Input({handleSubmit}) {
       <TextField
       sx={{mt:2, width: '45ch'}}
         id="input-with-icon-textfield"
-        label="Add your todo here..."
+        label="Add your todo here........."
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
