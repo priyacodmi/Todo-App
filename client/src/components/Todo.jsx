@@ -15,10 +15,12 @@ import { addTodo, deleteTodo, getAllTodos, updateTodoStatus, updateTodoTitle } f
 
 export const Todo=()=>{
 const todos=useSelector(state=>state.todos);
+console.log(todos)
   const dispatch=useDispatch();
 
-  const handleSubmit=(e,todo)=>{
-    e.preventDefault();
+  const handleSubmit=(todo)=>{
+    console.log(todo)
+    // e.preventDefault();
     dispatch(addTodo(todo));
   }
 
@@ -55,9 +57,7 @@ const todos=useSelector(state=>state.todos);
             <TableCell>
               End Time
             </TableCell>
-            <TableCell>
-              Duration
-            </TableCell>
+
             <TableCell>
               Status
             </TableCell>

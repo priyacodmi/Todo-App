@@ -7,7 +7,6 @@ export const getAllTodos=()=>(dispatch)=>{
   dispatch({type:types.FETCH_TODOS_REQUEST});
   return axios.get(`http://localhost:5000/api/todos/all`)
   .then((response)=>{
-    console.log(response.data.todos)
     return dispatch({type:types.FETCH_TODOS_SUCCESS, payload:response.data.todos})
   })
   .catch((error)=>{
@@ -38,9 +37,15 @@ export const fetchApiFailure=()=>{
 // Create Todo
 
 export const addTodo=(todo)=>(dispatch)=>{
-  console.log(todo)
+  let newTodo={
+    title:todo.title,
+    startTime:todo.startTime,
+    endTime:todo.EndTime,
+    duration:todo.duration,
+    isDone:todo.isDone
+  }
   dispatch({type:types.CREATE_TODO_REQUEST});
-  return axios.post(`http://localhost:5000/api/todos/createTodo`,{title:todo})
+  return axios.post(`http://localhost:5000/api/todos/createTodo`,newTodo)
   .then((response)=>{
     return dispatch({type:types.CREATE_TODO_SUCCESS, payload:response})
   })
@@ -146,7 +151,6 @@ export const updateTodoStatusFailure=()=>{
 
 // Delete todo
 export const deleteTodo=(id)=>(dispatch)=>{
-  console.log(id)
   dispatch({type:types.DELETE_TODO_REQUEST,id:id});
   return axios.delete(`http://localhost:5000/api/todos/${id}`)
   .then((response)=>{
