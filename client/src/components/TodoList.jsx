@@ -38,10 +38,7 @@ export const TodosList = ({props}) => {
       {moment(todo.startTime).format('LT')}
     </TableCell> 
     <TableCell>
-      Not set
-    </TableCell>
-    <TableCell>
-      Not known
+    {moment(todo.endTime).format('LT')}
     </TableCell>
     <TableCell>
     <Checkbox onClick={()=>{
