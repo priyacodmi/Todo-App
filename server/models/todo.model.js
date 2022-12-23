@@ -3,9 +3,8 @@ const mongoose=require("mongoose");
 // structure of todo collection
 const todoSchema= new mongoose.Schema({
   title:{type:String, required:true},
-  startTime:{type:Date, default:Date.now},
-  endTime:{type:Date},
-  duration:{type:Date},
+  startTime:{type:Date, default:new Date().getTime(), required:false},
+  endTime:{type:Date, required:false},
   isDone:{type:String, default:false}
 },{
   timestamps:true,
